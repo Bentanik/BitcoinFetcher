@@ -1,0 +1,15 @@
+﻿services:
+  bitcoin-fetcher:
+    build:
+      context: .
+      dockerfile: BitcoinFetcherConsole/Dockerfile  # Đảm bảo đường dẫn đúng đến Dockerfile
+    environment:
+      - REDIS_CONNECTION=redis:6379  # Kết nối đến Redis, nếu bạn cần
+    volumes:
+      - ./BitcoinFetcherConsole/appsettings.json:/app/appsettings.json  # Gắn file appsettings.json vào container
+    restart: always  # Khởi động lại container nếu nó dừng lại
+
+  redis:
+    image: redis:alpine  # Sử dụng Redis image từ Docker Hub
+    ports:
+      - "6379:6379"  # Mở cổng 6379 để truy cập Redis từ máy host

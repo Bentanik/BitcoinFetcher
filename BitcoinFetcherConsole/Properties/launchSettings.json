@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BitcoinFetcherConsole": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
